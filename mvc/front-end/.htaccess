@@ -1,0 +1,31 @@
+#.htaccess: file ngang hàng với file index gốc của ứng dụng
+# Dùng rewrite URL -> url thân thiện với người dùng
+# File rất nhạy cảm, trang có thể die nếu chỉnh sửa file này k đúng
+# Các file mà không có tên file, mặc định sẽ ẩn trên Window
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule cart.html index.php?controller=cart&action=index
+
+RewriteRule products_detail/([0-9]{1,}).html index.php?controller=product&action=detail&id=$1
+
+RewriteRule login.html index.php?controller=user&action=login
+
+RewriteRule register.html index.php?controller=user&action=register
+
+RewriteRule blog.html index.php?controller=blog&action=blog
+
+RewriteRule blog-detail.html index.php?controller=blog&action=blogdetail
+
+RewriteRule contact.html index.php?controller=contact&action=index
+
+RewriteRule payment.html index.php?controller=payment&action=order
+
+#RewriteRule shop.html index.php?controller=product&action=showAll
+
+RewriteRule profile.html index.php?controller=user&action=profile
+
+RewriteRule logout.html index.php?controller=user&action=logout
+
+RewriteRule order.html index.php?controller=user&action=order
